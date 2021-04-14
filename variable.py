@@ -5,6 +5,7 @@ class Variable:
 		self.name = name
 		self.domain = copy.deepcopy(domain)
 		self.value = None
+		self.domain_history = []
 
 	@property
 	def is_selected(self) -> bool:
@@ -18,3 +19,9 @@ class Variable:
 	
 	def __repr__(self):
 		return f"Variable({self.name}, {self.value})"
+
+	def push_domain(self):
+		self.domain_history.append(copy.deepcopy(self.domain))
+		
+	def pop_domain(self):
+		self.domain = self.domain_history.pop()
