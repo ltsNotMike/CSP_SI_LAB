@@ -23,7 +23,7 @@ class Problem:
 	def backtracking(self, unassigned: list) -> None:
 		if len(unassigned) == 0:
 			return
-		variable = copy.deepcopy(self.variables[unassigned[0]])
+		variable = self.variables[unassigned[0]]
 		for potential_value in variable.domain:
 			if self.is_solved():
 				return
@@ -45,6 +45,7 @@ class Problem:
 			if some_var != variable:
 				self.variables[some_var].push_domain()
 		
+		print(variable.domain)
 
 		# For each value in domain
 		for potential_value in variable.domain:
@@ -63,7 +64,6 @@ class Problem:
 		for some_var in unassigned:
 			if some_var != variable:
 				self.variables[some_var].pop_domain()
-	
 	def forward_check(self, variable_name: str, unassigned: list):
 		# For each constraint in the problem
 		for constraint, variables in self.constraints:
