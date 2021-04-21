@@ -45,8 +45,6 @@ class Problem:
 			if some_var != variable:
 				self.variables[some_var].push_domain()
 		
-		print(variable.domain)
-
 		# For each value in domain
 		for potential_value in variable.domain:
 			if self.is_solved():
