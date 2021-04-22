@@ -15,12 +15,13 @@ class Problem:
 		self.variables[name] = Variable(name, domain)
 
 	def get_solution(self) -> map:
-		self.forward_checking([copy.deepcopy(x) for x in self.variables])
+		self.backtracking([copy.deepcopy(x) for x in self.variables])
 		# TODO: This assumes that it is always solved
 		print(self.variables)
 		return self.variables
 
 	def backtracking(self, unassigned: list) -> None:
+		print(unassigned)
 		if len(unassigned) == 0:
 			return
 		variable = self.variables[unassigned[0]]

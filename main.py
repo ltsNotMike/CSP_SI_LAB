@@ -5,7 +5,7 @@ from variable import Variable
 from constraint import *
 def main():
 
-	problem = MapProblem()
+	problem = EinsteinProblem()
 	
 	problem.get_solution()
 	# problem = EinsteinProblem()
